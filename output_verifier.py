@@ -1,3 +1,7 @@
+# pip install shutup to suppress deprecated warning
+import shutup
+shutup.mute_warnings()
+
 # Grid represented as [num row][num col]
 grid = []
 
@@ -22,6 +26,8 @@ while(not fin):
 
 cols = len(grid[0])
 v_cou = 0
+
+print("Rows:", rows, "/ Cols:", cols)
 
 def test_num(r, c, num):
     lights = 0
