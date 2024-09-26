@@ -1,10 +1,12 @@
 # pip install shutup to suppress deprecated warning
+# if this is breaking stuff can delete
 import shutup
 shutup.mute_warnings()
 
 # Grid represented as [num row][num col]
 grid = []
 
+# if violation count not stated then errors
 try:
     vio = int(input())
 except ValueError:
@@ -14,6 +16,7 @@ except ValueError:
 fin = False
 rows = 0
 
+# reads until end of file and checks rows matching length
 while(not fin):
     try:
         grid.append(input())
@@ -29,6 +32,7 @@ v_cou = 0
 
 print("Rows:", rows, "/ Cols:", cols)
 
+# tests if proper number of lights around number block
 def test_num(r, c, num):
     lights = 0
     
@@ -50,6 +54,7 @@ def test_num(r, c, num):
     else:
         return False
 
+# tests for light collisions
 def test_light(r, c):
     if (r != rows-1):
         for i in range(r+1, rows):
@@ -78,6 +83,7 @@ def test_light(r, c):
 
     return True
 
+# tests for if blank spot is lit
 def test_blank(r, c):
     if (r != rows-1):
         for i in range(r+1, rows):
@@ -105,6 +111,7 @@ def test_blank(r, c):
                 break
     return False
 
+# checks each square in grid for validation
 for r in range(rows):
     for c in range(cols):
         match grid[r][c]:

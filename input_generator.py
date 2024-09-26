@@ -1,3 +1,4 @@
+# this is entirely just to make a stupid input
 rows = 420
 cols = 69
 
