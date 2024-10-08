@@ -125,7 +125,8 @@ for l in akari_lights:
                     space_lit += 1
                 i += 1
             case 'L':
-                i += 1
+                space_lit = i
+                blanks = False
             case _:
                 print("INVALID LIGHT")
                 quit()
@@ -156,7 +157,8 @@ for l in akari_lights_r:
                     space_lit += 1
                 i += 1
             case 'L':
-                i += 1
+                space_lit = i
+                blanks = False
             case _:
                 print("INVALID LIGHT")
                 quit()
