@@ -1,0 +1,5 @@
+REPLACE # WITH NUMBER
+
+algorithm_solver_ew.py real_inputs\input_group#.txt real_outputs\output_group#.txt
+
+output_verifier.py real_inputs\input_group#.txt real_outputs\output_group#.txt

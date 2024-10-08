@@ -85,7 +85,7 @@ def test_blank(r, c):
 for r in range(rows):
     for c in range(cols):
         match i_grid[r][c]:
-            case '1' | '2' | '3' | '4' | 'X':
+            case '0' | '1' | '2' | '3' | '4' | 'X':
                 if (c < (cols - 1)):
                     akari_lights.append((r, c + 1))
                 if (r < (rows - 1)):
@@ -114,7 +114,7 @@ for l in akari_lights:
     
     while blanks and (l[1] + i < (cols - 1)):
         match i_grid[l[0]][l[1] + i]:
-            case '1' | '2' | '3' | '4' | 'X':
+            case '0' | '1' | '2' | '3' | '4' | 'X':
                 blanks = False
             case '.':
                 lights = test_blank(l[0], l[1] + i)
@@ -131,10 +131,10 @@ for l in akari_lights:
                 print("INVALID LIGHT")
                 quit()
 
-    if (i != space_lit):
+    if (i != space_lit) and (i_grid[place_r][place_c] == '.'):
         i_grid[place_r][place_c] = 'L'
     
-for l in akari_lights_r:
+for l in akari_lights_r: 
     place_r = l[0]
     place_c = l[1]
     p_lights = test_blank(l[0], l[1])
@@ -146,7 +146,7 @@ for l in akari_lights_r:
     
     while blanks and (l[0] + i < (rows - 1)):
         match i_grid[l[0] + i][l[1]]:
-            case '1' | '2' | '3' | '4' | 'X':
+            case '0' | '1' | '2' | '3' | '4' | 'X':
                 blanks = False
             case '.':
                 lights = test_blank(l[0] + i, l[1])
@@ -163,7 +163,7 @@ for l in akari_lights_r:
                 print("INVALID LIGHT")
                 quit()
 
-    if (i != space_lit):
+    if (i != space_lit) and (i_grid[place_r][place_c] == '.'):
         i_grid[place_r][place_c] = 'L'
 
 
@@ -253,17 +253,8 @@ first = True
 for r in range(rows):
     for c in range(cols):
         match i_grid[r][c]:
-            case '1':
-                if(not test_num(r, c, 1)):
-                    v_cou += 1
-            case '2':
-                if(not test_num(r, c, 2)):
-                    v_cou += 1
-            case '3':
-                if(not test_num(r, c, 3)):
-                    v_cou += 1
-            case '4':
-                if(not test_num(r, c, 4)):
+            case '0' | '1' | '2' | '3' | '4':
+                if(not test_num(r, c, int(i_grid[r][c]))):
                     v_cou += 1
             case 'L':
                 if(not test_light(r, c)):

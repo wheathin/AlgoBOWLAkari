@@ -143,20 +143,12 @@ def test_blank(r, c):
 for r in range(rows):
     for c in range(cols):
         if (not test_match(r, c)):
+            print(r, c)
             print("MISMATCH GRID")
             quit()
         match o_grid[r][c]:
-            case '1':
-                if(not test_num(r, c, 1)):
-                    v_cou += 1
-            case '2':
-                if(not test_num(r, c, 2)):
-                    v_cou += 1
-            case '3':
-                if(not test_num(r, c, 3)):
-                    v_cou += 1
-            case '4':
-                if(not test_num(r, c, 4)):
+            case '0' | '1' | '2' | '3' | '4':
+                if(not test_num(r, c, int(i_grid[r][c]))):
                     v_cou += 1
             case 'L':
                 if(not test_light(r, c)):
