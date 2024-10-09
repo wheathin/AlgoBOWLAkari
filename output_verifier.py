@@ -149,14 +149,17 @@ for r in range(rows):
         match o_grid[r][c]:
             case '0' | '1' | '2' | '3' | '4':
                 if(not test_num(r, c, int(i_grid[r][c]))):
+                    print(r, c, "NUM")
                     v_cou += 1
             case 'L':
                 if(not test_light(r, c)):
+                    print(r, c, "LIGHT")
                     v_cou += 1
             case 'X':
                 continue
             case '.':
                 if(not test_blank(r, c)):
+                    print(r, c)
                     print("INVALID SOLUTION")
                     quit()
             case _:
