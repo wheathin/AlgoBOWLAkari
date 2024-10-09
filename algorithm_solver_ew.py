@@ -112,7 +112,7 @@ for l in akari_lights:
         space_lit += 1
     i = 1
     
-    while blanks and (l[1] + i < (cols - 1)):
+    while blanks and (l[1] + i < cols):
         match i_grid[l[0]][l[1] + i]:
             case '0' | '1' | '2' | '3' | '4' | 'X':
                 blanks = False
@@ -144,7 +144,7 @@ for l in akari_lights_r:
         space_lit += 1
     i = 1
     
-    while blanks and (l[0] + i < (rows - 1)):
+    while blanks and (l[0] + i < rows):
         match i_grid[l[0] + i][l[1]]:
             case '0' | '1' | '2' | '3' | '4' | 'X':
                 blanks = False
@@ -263,6 +263,7 @@ for r in range(rows):
                 continue
             case '.':
                 if(not test_right(r, c) and first):
+                    print(r, c)
                     print("INVALID SOLUTION")
                     first = False
             case _:
